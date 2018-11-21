@@ -5,7 +5,7 @@
     app
     dark>
     <v-toolbar-title class="ml-0 pl-3">
-      <v-toolbar-side-icon @click.stop=""></v-toolbar-side-icon>
+      <v-toolbar-side-icon @click.stop="toggleDrawer"></v-toolbar-side-icon>
     </v-toolbar-title>
    
       <v-spacer></v-spacer>
@@ -59,6 +59,12 @@ export default {
       }
     ],
         }
+    },
+    methods:{
+      toggleDrawer(){
+        var toggled=this.$store.getters['layout/getDrawer'];
+        this.$store.commit('layout/toggleDrawer',toggled);
+      }
     }
 }
 </script>

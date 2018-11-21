@@ -1,4 +1,4 @@
-export default[{
+export const helpdesk={
     title:'Help Desk',
     name:'help_desk',
     item:[{
@@ -10,4 +10,8 @@ export default[{
         title:'Manual',
         name:'manual'
     }]
-}];
+};
+
+export default{
+    helpdesk
+}

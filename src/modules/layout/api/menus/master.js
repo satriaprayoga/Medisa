@@ -1,4 +1,4 @@
-export default[{
+const master={
     title:'Master',
     name:'master',
     item:[
@@ -30,4 +30,8 @@ export default[{
         }
         
     ]
-}];
+};
+
+export default{
+    master
+}

@@ -7,7 +7,7 @@ const state={
         "Master Data",
     ],
     activeModule:"",
-    activeMenu:{}
+    drawer:true
 }
 
 const getters={
@@ -20,10 +20,8 @@ const getters={
         return state.activeModule;
 
     },
-    getActiveMenu:(state)=>{
-        if(state.activeMenu===null)
-            mutations.changeMenu(state,helpDeskMenu);
-        return state.activeMenu;
+    getDrawer:(state)=>{
+        return state.drawer
     }
 }
 
@@ -31,21 +29,8 @@ const mutations={
     changeModule(state,mod){
         state.activeModule=mod;
     },
-    changeMenu(state){
-        if(state.activeModule===state.modules[1]){
-           mutations.addMenu(state,masterMenu);
-        }else{
-            mutations.addMenu(state,helpDeskMenu);
-        }
-    },
-    addMenu(state,menu){
-        Object.keys(menu).forEach(function(key){
-            var temp=menu[key];
-            console.log(temp);
-            state.activeMenu=temp;
-          
-        });
-        console.log(state.activeMenu);
+    toggleDrawer(state){
+        state.drawer=!state.drawer;
     }
 }
 

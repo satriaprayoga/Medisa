@@ -2,12 +2,12 @@
     <v-navigation-drawer
     id="appDrawer"
     v-model="drawer"
-    :mini-variant.sync="mini"
+    :mini-variant="mini"
     width="260"
     fixed
     app>
         <v-toolbar color="white" light>
-          
+            <v-img :src="require('../../../assets/logo-dd.png')" contain height="36"></v-img>
             <v-toolbar-title class="ml-0 pl-3">
                 <span class="hidden-sm-and-down">Dompet Duafa</span>
             </v-toolbar-title>  
@@ -24,9 +24,19 @@ export default {
     components:{
         AppMenu
     },
+    computed:{
+        drawer:{
+            get(){
+                return this.$store.getters['layout/getDrawer']
+            },
+            set(val){
+               
+            }
+        }
+    },
     data(){
         return{
-            drawer:null,
+           
             mini:false,
         }
     }
