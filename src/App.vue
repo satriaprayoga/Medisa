@@ -1,6 +1,8 @@
 <template>
   <v-app>
-    <v-toolbar app>
+    <app-drawer/>
+    <app-toolbar/>
+   <!--  <v-toolbar app>
       <v-toolbar-title class="headline text-uppercase">
         <span>Vuetify</span>
         <span class="font-weight-light">MATERIAL DESIGN</span>
@@ -17,17 +19,19 @@
 
     <v-content>
       <HelloWorld/>
-    </v-content>
+    </v-content> -->
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import AppDrawer from './modules/layout/components/AppDrawer'
+import AppToolbar from './modules/layout/components/AppToolbar'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    AppDrawer,
+    AppToolbar
   },
   data () {
     return {
