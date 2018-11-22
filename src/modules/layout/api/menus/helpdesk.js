@@ -1,4 +1,4 @@
-export const helpdesk={
+const helpdesk={
     title:'Help Desk',
     name:'help_desk',
     item:[{

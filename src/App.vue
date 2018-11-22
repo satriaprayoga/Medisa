@@ -1,7 +1,8 @@
 <template>
-  <v-app>
-    <app-drawer/>
-    <app-toolbar/>
+  <div id="appRoot">
+    <v-app id="inspired" class="app">
+    <app-drawer class="app--drawer"></app-drawer>
+    <app-toolbar class="app--toolbar"></app-toolbar>
    <!--  <v-toolbar app>
       <v-toolbar-title class="headline text-uppercase">
         <span>Vuetify</span>
@@ -21,6 +22,7 @@
       <HelloWorld/>
     </v-content> -->
   </v-app>
+  </div>
 </template>
 
 <script>

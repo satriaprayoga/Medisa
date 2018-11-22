@@ -5,6 +5,8 @@ const state={
     modules:[
         "Help Desk",
         "Master Data",
+        "Registrasi",
+        "IGD"
     ],
     activeModule:"",
     drawer:true

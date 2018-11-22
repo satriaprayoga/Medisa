@@ -45,6 +45,8 @@
 <script>
 import helpdesk from '../api/menus/helpdesk'
 import master from '../api/menus/master'
+import registration from '../api/menus/registration'
+import igd from '../api/menus/igd'
 
 export default {
     name:'app-menu',
@@ -69,6 +71,10 @@ export default {
             var modules=this.$store.getters['layout/getModules'];
             if(currentModule===modules[1])
                 this.menus=master.master;
+            else if(currentModule===modules[2])
+                this.menus=registration.registration
+            else if(currentModule===modules[3])
+                this.menus=igd.igd;
             else
                 this.menus=helpdesk.helpdesk;
         }
