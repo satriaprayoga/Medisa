@@ -1,5 +1,5 @@
 <template>
-    <v-list class="pa-2 ma-2">
+    <v-list dense expand>
                 <v-list-tile>
                   <v-list-tile-content>
                        <v-list-tile-title><h4>Pilih Modul</h4></v-list-tile-title>
@@ -12,7 +12,7 @@
                         :items="loadModules"
                         v-model="selected"
                         @change="loadMenu"
-                        box></v-select>
+                        ></v-select>
                    </v-list-tile-content>
                 </v-list-tile>
                 <v-divider></v-divider>
@@ -34,7 +34,7 @@
                                 </v-list-tile-content>
                             </v-list-tile>
                         </v-list-group>
-                        <v-list-tile v-else :key="it.name" @click="">
+                        <v-list-tile v-else :key="it.name" @click="" :to="it.to">
                             <v-list-tile-content>
                                     <v-list-tile-title>{{ it.title}}</v-list-tile-title>
                             </v-list-tile-content>

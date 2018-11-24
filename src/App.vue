@@ -3,6 +3,20 @@
     <v-app id="inspired" class="app">
     <app-drawer class="app--drawer"></app-drawer>
     <app-toolbar class="app--toolbar"></app-toolbar>
+    <v-content>
+      <div class="page-wrapper">
+        <app-header></app-header>
+        <div class="page-wrapper">
+            <router-view></router-view>
+          </div>   
+      </div>
+       <!-- App Footer -->
+      <v-footer height="auto" class="white pa-3 app--footer">
+        <span class="caption">Medisa - Medical Information System Aja &copy; {{ new Date().getFullYear() }}</span>
+        <v-spacer></v-spacer>
+        <span class="caption mr-1"> Make With Love </span> <v-icon color="pink" small>favorite</v-icon>
+      </v-footer>
+    </v-content>
    <!--  <v-toolbar app>
       <v-toolbar-title class="headline text-uppercase">
         <span>Vuetify</span>
@@ -28,12 +42,14 @@
 <script>
 import AppDrawer from './modules/layout/components/AppDrawer'
 import AppToolbar from './modules/layout/components/AppToolbar'
+import AppHeader from './modules/layout/components/AppHeader'
 
 export default {
   name: 'App',
   components: {
     AppDrawer,
-    AppToolbar
+    AppToolbar,
+    AppHeader
   },
   data () {
     return {
@@ -42,3 +58,8 @@ export default {
   }
 }
 </script>
+<style lang="stylus" scoped>
+  .page-wrapper
+    min-height:calc(100vh - 64px - 50px - 81px );  
+
+</style>

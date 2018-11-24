@@ -4,7 +4,8 @@ const master={
     item:[
         {
             title:'Informasi Rumah Sakit',
-            name:'rs_info'
+            name:'rs_info',
+            to:'/hospital'
         },
         {
             title:'Pegawai',

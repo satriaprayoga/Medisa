@@ -3,7 +3,7 @@
        <v-container grid-list-xl fluid>
            <v-layout row wrap>
                <v-flex x16>
-                   <v-widget title="Informasi Rumah Sakit"></v-widget>
+                   <app-widget :title="info.name"></app-widget>
                </v-flex>
            </v-layout>
        </v-container>
@@ -11,12 +11,17 @@
 </template>
 <script>
 
-import AppWidget from "@modules/layout/components/AppWidget"
+import AppWidget from "@/modules/layout/components/AppWidget"
 
 export default {
     name:'hospital-info',
     components:{
         AppWidget
+    },
+    data(){
+        return{
+            info:this.$store.getters['master/getHospitalInfo']
+        }
     }
 }
 </script>
