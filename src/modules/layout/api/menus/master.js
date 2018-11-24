@@ -10,7 +10,7 @@ const master={
         {
             title:'Pegawai',
             name:'pegawai',
-            subItem:[{title:'Medis',name:'medic'},{title:'Non Medis',name:'non_medic'}]
+            subItem:[{title:'Medis',name:'medic',to:'/employee_medics'},{title:'Non Medis',name:'non_medic'}]
         },
         
         {

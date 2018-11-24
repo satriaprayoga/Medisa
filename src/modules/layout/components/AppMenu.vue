@@ -28,7 +28,7 @@
                                     <v-list-tile-title>{{it.title}}</v-list-tile-title>
                                 </v-list-tile-content>
                             </v-list-tile>
-                             <v-list-tile v-for="i in it.subItem" :key="i.name" @click="">
+                             <v-list-tile v-for="i in it.subItem" :key="i.name" :to="i.to">
                                 <v-list-tile-content>
                                     <v-list-tile-title>{{ i.title}}</v-list-tile-title>
                                 </v-list-tile-content>
