@@ -4,6 +4,8 @@ import Router from 'vue-router'
 const Hospital=()=>import('../modules/master/components/Hospital')
 const Medic=()=>import('../modules/master/components/Medic')
 const MedicForm=()=>import('../modules/master/components/MedicForm')
+const NonMedic=()=>import('../modules/master/components/NonMedic')
+const NonMedicForm=()=>import('../modules/master/components/NonMedicForm')
 
 Vue.use(Router)
 
@@ -22,10 +24,20 @@ const router= new Router({
             component:Medic
         },
         {
-            path:'/add_employee_medics',
-            name:'Pegawai Medis Baru',
+            path:'/update_employee_medics/:id?',
+            name:'Update Pegawai Medis',
             component:MedicForm
-        }
+        },
+        {
+            path:'/employee_non_medics',
+            name:'Pegawai Non Medis',
+            component:NonMedic
+        },
+        {
+            path:'/update_employee_non_medics/:id?',
+            name:'Update Pegawai Non Medis',
+            component:NonMedicForm
+        },
     ]
 });
 
