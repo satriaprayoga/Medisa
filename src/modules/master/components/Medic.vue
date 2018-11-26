@@ -28,6 +28,21 @@
                             <td>{{ props.item.name }}</td>
                             <td>{{ props.item.type }}</td>
                             <td>{{ props.item.specialist }}</td>
+                             <td >
+                                <v-icon
+                                    small
+                                    class="mr-2"
+                                    @click="updatePage(props.item.id)"
+                                >
+                                    edit
+                                </v-icon>
+                                <v-icon
+                                    small
+                                    @click=""
+                                >
+                                    delete
+                                </v-icon>
+                            </td>
                         </template>
 
                         </v-data-table>
@@ -53,10 +68,19 @@
                         {
                             text:'Spesialis',
                             value:'specialist'
+                        },
+                        {
+                            text:'Aksi',
+                            value:'action'
                         }
                     ],
                     items:this.$store.getters["master/getMedics"]
                 }
+            }
+        },
+        methods:{
+            updatePage(id){
+                this.$router.push('/update_employee_medics/'+id)
             }
         }
     }
