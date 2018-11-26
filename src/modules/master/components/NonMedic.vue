@@ -7,7 +7,7 @@
                     </v-flex>  
                     <v-flex lg12>
                         <v-toolbar card color="white">
-                            <v-btn color="success" to="/update_employee_medics">Tambah Pegawai</v-btn>
+                            <v-btn color="success" to="/update_employee_non_medics">Tambah Pegawai</v-btn>
                             <v-text-field
                             flat
                             solo
@@ -19,30 +19,14 @@
                         </v-toolbar>
                         <v-divider></v-divider>
                         <v-data-table
-                            :headers="medics.headers"
-                            :items="medics.items"
+                            :headers="nonMedics.headers"
+                            :items="nonMedics.items"
                             hide-actions
                             class="eleveation-1"
                         >
                         <template slot="items" slot-scope="props">
                             <td>{{ props.item.name }}</td>
                             <td>{{ props.item.type }}</td>
-                            <td>{{ props.item.specialist }}</td>
-                             <td >
-                                <v-icon
-                                    small
-                                    class="mr-2"
-                                    @click="updatePage(props.item.id)"
-                                >
-                                    edit
-                                </v-icon>
-                                <v-icon
-                                    small
-                                    @click=""
-                                >
-                                    delete
-                                </v-icon>
-                            </td>
                         </template>
 
                         </v-data-table>
@@ -55,7 +39,7 @@
     export default {
         data(){
             return{
-                medics:{
+                nonMedics:{
                     headers:[
                         {
                             text:'Nama',
@@ -64,23 +48,10 @@
                         {
                             text:'Tipe',
                             value:'type'
-                        },
-                        {
-                            text:'Spesialis',
-                            value:'specialist'
-                        },
-                        {
-                            text:'Aksi',
-                            value:'action'
                         }
                     ],
-                    items:this.$store.getters["master/getMedics"]
+                    items:this.$store.getters["master/getNonMedics"]
                 }
-            }
-        },
-        methods:{
-            updatePage(id){
-                this.$router.push('/update_employee_medics/'+id)
             }
         }
     }
