@@ -42,6 +42,11 @@
 </template>
 <script>
 export default {
+    computed:{
+        id(){
+            return this.$route.params.id
+        }
+    },
     data(){
         return{
             types:["Dokter","Perawat","Bidan","Farmasi"],
@@ -57,6 +62,14 @@ export default {
             }
         }
         
+    },
+    beforeMount(){
+         if(this.$route.params.id==undefined){
+             this.employee={}
+         }else{
+             var id=parseInt(this.$route.params.id)
+             this.employee=this.$store.getters['master/getMedic'](id);
+         }
     },
     methods:{
         submit(){

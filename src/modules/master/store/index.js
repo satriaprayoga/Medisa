@@ -10,41 +10,49 @@ const state={
     },
     medics:[
         {
+            id:1,
             name:'Herman Ngantuk',
             type:'Dokter',
-            specialist:'Kandungan'
+            specialist:'Obsgin'
         },
         {
+            id:2,
             name:'Herman Seger',
             type:'Dokter',
             specialist:'Anak'
         },
         {
+            id:3,
             name:'Herman Aja',
             type:'Dokter',
             specialist:'Umum'
         },
         {
+            id:4,
             name:'Ani',
             type:'Perawat',
             specialist:'-'
         },
         {
+            id:5,
             name:'Tini',
             type:'Perawat',
             specialist:'-'
         },
         {
+            id:6,
             name:'Susi',
             type:'Perawat',
             specialist:'-'
         },
         {
+            id:7,
             name:'Rini',
             type:'Bidan',
             specialist:'-'
         },
         {
+            id:8,
             name:'Tuti',
             type:'Bidan',
             specialist:'-'
@@ -58,6 +66,10 @@ const getters={
     },
     getMedics:(state)=>{
         return state.medics;
+    },
+    getMedic:(state)=>(id)=>{
+        var medic=state.medics.filter(med=>med.id===id)
+        return medic[0];
     }
 }
 

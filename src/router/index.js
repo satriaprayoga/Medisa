@@ -22,8 +22,8 @@ const router= new Router({
             component:Medic
         },
         {
-            path:'/add_employee_medics',
-            name:'Pegawai Medis Baru',
+            path:'/add_employee_medics/:id?',
+            name:'Update Pegawai',
             component:MedicForm
         }
     ]
