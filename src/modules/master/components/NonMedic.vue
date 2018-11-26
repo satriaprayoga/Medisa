@@ -27,9 +27,53 @@
                         <template slot="items" slot-scope="props">
                             <td>{{ props.item.name }}</td>
                             <td>{{ props.item.type }}</td>
+                            <td >
+                                <v-icon
+                                    small
+                                    class="mr-2"
+                                    @click="updatePage(props.item.id)"
+                                >
+                                    edit
+                                </v-icon>
+                                <v-icon
+                                    small
+                                    @click="openDialog(props.item)"
+                                >
+                                    delete
+                                </v-icon>
+                            </td>
                         </template>
 
                         </v-data-table>
+                        <v-dialog v-model="dialog" width="290">
+                            <v-card>
+                                <v-card-title class="headline">Anda Yakin akan menghapus data?</v-card-title>
+                                 <v-card-text>
+                                     nama: {{selected.name}}<br/>
+                                     jenis: {{selected.type}}<br/>
+                                 </v-card-text>
+                                    <v-card-actions>
+                                         <v-spacer></v-spacer>
+
+                                        <v-btn
+                                            color="red darken-1"
+                                            flat="flat"
+                                            @click="removeMedic"
+                                        >
+                                            Setuju
+                                        </v-btn>
+
+                                        <v-btn
+                                            color="green darken-1"
+                                            flat="flat"
+                                            @click="dialog = false"
+                                        >
+                                            Batal
+                                        </v-btn>
+                                  </v-card-actions>
+
+                            </v-card>
+                        </v-dialog>
                     </v-flex>      
                 </v-layout>
             </v-container>
@@ -39,6 +83,7 @@
     export default {
         data(){
             return{
+                dialog:false,
                 nonMedics:{
                     headers:[
                         {
@@ -48,11 +93,31 @@
                         {
                             text:'Tipe',
                             value:'type'
+                        },
+                        {
+                            text:'Aksi',
+                            value:'action'
                         }
                     ],
                     items:this.$store.getters["master/getNonMedics"]
-                }
+                },
+                selected:{}
+            }
+        },
+        methods:{
+            updatePage(id){
+                this.$router.push('/update_employee_non_medics/'+id)
+            },
+            openDialog(nonmedic){
+                this.selected=this.$store.getters['master/getNonMedic'](nonmedic.id)
+                this.dialog=true;
+                //this.$store.dispatch('master/deleteMedic',selected)
+            },
+            removeMedic(){
+                this.$store.dispatch('master/deleteNonMedic',this.selected);
+                this.dialog=false
             }
         }
+        
     }
     </script>

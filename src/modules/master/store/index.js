@@ -154,6 +154,10 @@ const mutations={
             specialist:medic.specialist
         };
     },
+    deleteMedic(state,medic){
+        var index=state.medics.findIndex(m=>m.id===medic.id);
+        state.medics.splice(index,1);
+    },
     updateNonMedics(state,nonmedic){
         var index=state.nonMedics.findIndex(m=>m.id===nonmedic.id);
         state.nonMedics[index]={
@@ -162,7 +166,11 @@ const mutations={
             type:nonmedic.type,
             specialist:nonmedic.specialist
         };
-    }
+    },
+    deleteNonMedic(state,nonmedic){
+        var index=state.nonMedics.findIndex(m=>m.id===nonmedic.id);
+        state.nonMedics.splice(index,1);
+    },
 }
 
 const actions={
@@ -175,12 +183,18 @@ const actions={
     updateMedics({commit},data){
         commit('updateMedics',data);
     },
+    deleteMedic({commit},data){
+        commit('deleteMedic',data)
+    },
     addNonMedics({commit},data){
         commit('addNonMedics',data);
     },
     updateNonMedics({commit},data){
         commit('updateNonMedics',data);
-    }
+    },
+    deleteNonMedic({commit},data){
+        commit('deleteNonMedic',data)
+    },
 }
 
 export default{

@@ -28,7 +28,7 @@
                             <td>{{ props.item.name }}</td>
                             <td>{{ props.item.type }}</td>
                             <td>{{ props.item.specialist }}</td>
-                             <td >
+                            <td >
                                 <v-icon
                                     small
                                     class="mr-2"
@@ -38,7 +38,7 @@
                                 </v-icon>
                                 <v-icon
                                     small
-                                    @click=""
+                                    @click="openDialog(props.item)"
                                 >
                                     delete
                                 </v-icon>
@@ -46,6 +46,36 @@
                         </template>
 
                         </v-data-table>
+                        <v-dialog v-model="dialog" width="290">
+                            <v-card>
+                                <v-card-title class="headline">Anda Yakin akan menghapus data?</v-card-title>
+                                 <v-card-text>
+                                     nama: {{selected.name}}<br/>
+                                     jenis: {{selected.type}}<br/>
+                                     specialist:{{selected.specialist}}
+                                 </v-card-text>
+                                    <v-card-actions>
+                                         <v-spacer></v-spacer>
+
+                                        <v-btn
+                                            color="red darken-1"
+                                            flat="flat"
+                                            @click="removeMedic"
+                                        >
+                                            Setuju
+                                        </v-btn>
+
+                                        <v-btn
+                                            color="green darken-1"
+                                            flat="flat"
+                                            @click="dialog = false"
+                                        >
+                                            Batal
+                                        </v-btn>
+                                  </v-card-actions>
+
+                            </v-card>
+                        </v-dialog>
                     </v-flex>      
                 </v-layout>
             </v-container>
@@ -55,6 +85,7 @@
     export default {
         data(){
             return{
+                dialog:false,
                 medics:{
                     headers:[
                         {
@@ -75,12 +106,22 @@
                         }
                     ],
                     items:this.$store.getters["master/getMedics"]
-                }
+                },
+                selected:{}
             }
         },
         methods:{
             updatePage(id){
                 this.$router.push('/update_employee_medics/'+id)
+            },
+            openDialog(medic){
+                this.selected=this.$store.getters['master/getMedic'](medic.id)
+                this.dialog=true;
+                //this.$store.dispatch('master/deleteMedic',selected)
+            },
+            removeMedic(){
+                this.$store.dispatch('master/deleteMedic',this.selected);
+                this.dialog=false
             }
         }
     }
