@@ -1,3 +1,5 @@
+import { stat } from "fs";
+
 const state={
     hospitalInfo:{
         code:'RSDD-S-01',
@@ -106,7 +108,52 @@ const state={
         name:'Dodi',
         type:'Keuangan',
         specialist:'-'
-    }]
+    }],
+    actions:[
+        {
+            id:1,
+            type:'Anastesi',
+            subactions:[
+                {
+                    id:1,
+                    name:'Bius Lokal',
+                    price:250000
+                },
+                {
+                    id:2,
+                    name:'Bius Total',
+                    price:350000
+                }
+            ]
+        },
+        {
+            id:2,
+            type:'Perawatan Luka',
+            subactions:[
+                {
+                    id:1,
+                    name:'Jahit (1-5)',
+                    price:30000
+                },
+                {
+                    id:2,
+                    name:'Jahit (6-10)',
+                    price:50000
+                },
+                {
+                    id:3,
+                    name:'Jahit (>10)',
+                    price:50000
+                },
+                {
+                    id:4,
+                    name:'Verband',
+                    price:50000
+                }
+            ]
+        }
+    ]
+
 }
 
 const getters={
@@ -125,6 +172,20 @@ const getters={
     getNonMedic:(state)=>(id)=>{
         return state.nonMedics.filter(m=>m.id===id)[0];
     },
+    getActions:(state)=>{
+        return state.actions;
+    },
+    getAction:(state)=>(id)=>{
+        return state.actions.filter(a=>a.id===id)[0];
+    },
+    getSubActions:(state)=>(action)=>{
+        const act=state.actions.filter(a=>a.id===action.id)[0];
+        if(act && act.subactions.length>0){
+            return act.subactions;
+        }else{
+            return null;
+        }
+    }
     
 }
 
@@ -172,6 +233,21 @@ const mutations={
         var index=state.nonMedics.findIndex(m=>m.id===nonmedic.id);
         state.nonMedics.splice(index,1);
     },
+    addAction(state,action){
+        state.actions.push(action);
+    },
+    updateAction(state,action){
+        var index=state.actions.findIndex(a=>a.id===action.id);
+        state.actions[index]={
+            id:action.id,
+            type:action.type,
+            subactions:action.subactions
+        }
+    },
+    deleteAction(state,action){
+        var index=state.action.findIndex(a=>a.id===action.id);
+        state.actions.splice(index,1)
+    }
 }
 
 const actions={
