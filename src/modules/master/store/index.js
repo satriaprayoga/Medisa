@@ -58,7 +58,8 @@ const state={
             specialist:'-'
         }
     ],
-    nonMedics:[{
+    nonMedics:[
+        {
         id:1,
         name:'Budi',
         type:'Kasir',
