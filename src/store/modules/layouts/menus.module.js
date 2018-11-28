@@ -1,7 +1,7 @@
 const state={
     modules:[
         "Bantuan",
-        "Pengaturan",
+        "HRM",
     ],
     activeModule:"",
     drawer:true

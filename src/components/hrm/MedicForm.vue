@@ -45,11 +45,20 @@ export default {
     computed:{
         id(){
             return this.$route.params.id
+        },
+        types(){
+            var _types= this.$store.getters['hrmEmployeeModule/getMedicTypes'];
+            var typeNames=[];
+            _types.forEach(element => {
+                typeNames.push(element.name);
+            });
+            console.log(typeNames);
+            return typeNames;
         }
     },
     data(){
         return{
-            types:["Dokter","Perawat","Bidan","Farmasi"],
+           // types:this.$state.getters['hrmEmployeeModule/getMedicTypes'],
             specialists:[
                 "Anak","Obsgin","Penyakit Dalam","Bedah",
                 "Radiologi","Anastesi","Jantung dan Pembuluh Darah",
@@ -69,14 +78,14 @@ export default {
         if(!id){
             this.employee={}
         }else{
-            this.employee=this.$store.getters['configsEmployeeModule/getMedicId'](id)
+            this.employee=this.$store.getters['hrmEmployeeModule/getMedicId'](id)
         }
         this.cacheEmployee=Object.assign({},this.employee);
     },
     methods:{
         submit(){
             console.log(this.employee);
-            this.$store.dispatch('configsEmployeeModule/updateMedic',this.employee);
+            this.$store.dispatch('hrmEmployeeModule/updateMedic',this.employee);
             this.$router.push('/employee_medics');
         },
         reset(){

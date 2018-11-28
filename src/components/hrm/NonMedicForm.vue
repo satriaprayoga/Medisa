@@ -36,13 +36,23 @@
 </template>
 <script>
 export default {
+    computed:{
+        types(){
+             var _types=this.$store.getters['hrmEmployeeModule/getNonMedicTypes'];
+             var typeNames=[];
+            _types.forEach(element => {
+                typeNames.push(element.name);
+            });
+            return typeNames;
+        }
+    },
     data(){
         return{
-            types:["Umum","Keuangan","Kasir","Sekuriti","OB","Koki"],
             employee:{
                 name:'',
                 type:'',
-            }
+            },
+            cacheEmployee:{}
         }
         
     },
@@ -51,22 +61,18 @@ export default {
         if(!id){
             this.employee={}
         }else{
-            this.employee=this.$store.getters['master/getNonMedic'](id)
+            this.employee=this.$store.getters['hrmEmployeeModule/getNonMedicId'](id)
         }
+        this.cacheEmployee=Object.assign({},this.employee);
     },
     methods:{
         submit(){
             console.log(this.employee);
-            var id=parseInt(this.$route.params.id);
-            if(!id){
-                this.$store.dispatch('master/addNonMedics',this.employee);
-            }else{
-                   this.$store.dispatch('master/updateNonMedics',this.employee);
-            }
+            this.$store.dispatch('hrmEmployeeModule/updateNonMedic',this.employee);
             this.$router.push('/employee_non_medics');
         },
         reset(){
-            this.employee={}
+           Object.assign(this.employee,this.cacheEmployee);
         }
     }
 }

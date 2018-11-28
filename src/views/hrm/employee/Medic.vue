@@ -23,34 +23,6 @@
                             :openDialog="openDialog"
                             :updatePage="updatePage" >
                         </employee-table>
-                       <!--  <v-data-table
-                            :headers="medics.headers"
-                            :items="medics.items"
-                            hide-actions
-                            class="eleveation-1"
-                        >
-                        <template slot="items" slot-scope="props">
-                           <template v-for="(value,key) in props.item">
-                               <td v-if="key!=='id'">{{value}}</td>
-                           </template>
-                            <td >
-                                <v-icon
-                                    small
-                                    class="mr-2"
-                                    @click="updatePage(props.item.id)"
-                                >
-                                    edit
-                                </v-icon>
-                                <v-icon
-                                    small
-                                    @click="openDialog(props.item)"
-                                >
-                                    delete
-                                </v-icon>
-                            </td>
-                        </template>
-
-                        </v-data-table> -->
                         <v-dialog v-model="dialog" width="290">
                             <v-card>
                                 <v-card-title class="headline">Anda Yakin akan menghapus data?</v-card-title>
@@ -88,7 +60,7 @@
     </template>
     <script>
 
-    import EmployeeTable from "@/components/configs/EmployeeTable"
+    import EmployeeTable from "@/components/hrm/EmployeeTable"
 
     export default {
         components:{
@@ -104,7 +76,7 @@
                             value:'name'
                         },
                         {
-                            text:'Tipe',
+                            text:'Jenis',
                             value:'type'
                         },
                         {
@@ -116,7 +88,7 @@
                             value:'action'
                         }
                     ],
-                    items:this.$store.getters["configsEmployeeModule/getMedics"]
+                    items:this.$store.getters["hrmEmployeeModule/getMedics"]
                 },
                 selected:{}
             }
@@ -126,12 +98,12 @@
                 this.$router.push('/update_employee_medics/'+id)
             },
             openDialog(medic){
-                this.selected=this.$store.getters['configsEmployeeModule/getMedicId'](medic.id)
+                this.selected=this.$store.getters['hrmEmployeeModule/getMedicId'](medic.id)
                 this.dialog=true;
                 //this.$store.dispatch('master/deleteMedic',selected)
             },
             removeMedic(){
-                this.$store.dispatch('master/deleteMedic',this.selected);
+                this.$store.dispatch('hrmEmployeeModule/removeMedic',this.selected);
                 this.dialog=false
             }
         }

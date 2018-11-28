@@ -46,6 +46,9 @@ const actions={
 }
 
 export const ActionService={
+    getAll(){
+        return actions.data;
+    },
     get(id){
         if(!id || id===undefined){
             return actions.data;

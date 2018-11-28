@@ -3,7 +3,7 @@ import {settings} from './menus/settings'
 
 const modules={
     data:[
-        "Bantuan","Pengaturan","Konfigurasi"
+        "Bantuan","HRM","Konfigurasi"
     ]
 }
 

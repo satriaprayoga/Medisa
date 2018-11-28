@@ -1,11 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-const Hospital=()=>import('../modules/master/components/Hospital')
-const Medic=()=>import('../views/configs/employee/Medic')
-const MedicForm=()=>import('../components/configs/MedicForm')
-const NonMedic=()=>import('../modules/master/components/NonMedic')
-const NonMedicForm=()=>import('../modules/master/components/NonMedicForm')
+const Medic=()=>import('../views/hrm/employee/Medic')
+const MedicForm=()=>import('../components/hrm/MedicForm')
+const NonMedic=()=>import('../views/hrm/employee/NonMedic')
+const NonMedicForm=()=>import('../components/hrm/NonMedicForm')
 
 Vue.use(Router)
 
@@ -13,11 +12,6 @@ const router= new Router({
     mode: 'hash', // https://router.vuejs.org/api/#mode
     linkActiveClass: 'open active',
     routes:[
-        {
-            path:'/hospital',
-            name:'Informasi Rumah Sakit',
-            component:Hospital
-        },
         {
             path:'/employee_medics',
             name:'Pegawai Medis',

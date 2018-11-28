@@ -1,6 +1,6 @@
 export const settings={
     data:{
-        title:'Pengaturan',
+        title:'HRM',
     name:'settings',
     items:[
         {

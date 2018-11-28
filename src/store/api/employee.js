@@ -49,6 +49,86 @@ const medics={
     }],
 };
 
+const nonmedics={
+    data:[{
+        id:1,
+        name:'Herman Ngantuk',
+        type:'OB',
+    },
+    {
+        id:2,
+        name:'Herman Seger',
+        type:'Dokter',
+    },
+    {
+        id:3,
+        name:'Herman Aja',
+        type:'Dokter',
+    },
+    {
+        id:4,
+        name:'Ani',
+        type:'Perawat',
+    },
+    {
+        id:5,
+        name:'Tini',
+        type:'Perawat',
+    }],
+};
+
+const medicTypes={
+    data:[
+        {
+            id:1,
+            name:'Dokter'
+        },
+        {
+            id:2,
+            name:'Perawat'
+        },
+        {
+            id:3,
+            name:'Bidan'
+        },
+        {
+            id:4,
+            name:'Farmasi'
+        },
+        {
+            id:5,
+            name:'Tenaga Kesehatan Lain'
+        }
+    ]
+};
+
+const nonMedicTypes={
+    data:[
+        {
+            id:1,
+            name:'Keuangan'
+        },
+        {
+            id:2,
+            name:'Logistik'
+        },
+        {
+            id:3,
+            name:'HRM'
+        },
+        {
+            id:4,
+            name:'OB'
+        },
+        {
+            id:5,
+            name:'Sekuriti'
+        }
+    ]
+};
+
+
+
 export const MedicService={
     getAll(){
         return medics.data;
@@ -74,58 +154,10 @@ export const MedicService={
     }
 }
 
-const nonmedics={
-    data:[{
-        id:1,
-        name:'Budi',
-        type:'Kasir',
-        specialist:'-'
-    },
-    {
-        id:2,
-        name:'Johan',
-        type:'Umum',
-        specialist:'-'
-    },
-    {
-        id:3,
-        name:'Dadang',
-        type:'Sekuriti',
-        specialist:'-'
-    },
-    {
-        id:4,
-        name:'Bahar',
-        type:'OB',
-        specialist:'-'
-    },
-    {
-        id:5,
-        name:'Doni',
-        type:'OB',
-        specialist:'-'
-    },
-    {
-        id:6,
-        name:'Mia',
-        type:'Koki',
-        specialist:'-'
-    },
-    {
-        id:7,
-        name:'Dudung',
-        type:'Keuangan',
-        specialist:'-'
-    },
-    {
-        id:8,
-        name:'Dodi',
-        type:'Keuangan',
-        specialist:'-'
-    }],
-};
-
 export const NonMedicService={
+    getAll(){
+        return nonmedics.data;
+    },
     get(id){
         if(!id || id===undefined)
             return nonmedics.data;
@@ -144,5 +176,14 @@ export const NonMedicService={
             nonmedics.data[idx]=data;
         }
         
+    }
+}
+
+export const TypeService={
+    getMedicTypes(){
+        return medicTypes.data;
+    },
+    getNonMedicTypes(){
+        return nonMedicTypes.data;
     }
 }
