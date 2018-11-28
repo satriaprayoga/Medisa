@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 const Hospital=()=>import('../modules/master/components/Hospital')
 const Medic=()=>import('../views/configs/employee/Medic')
-const MedicForm=()=>import('../modules/master/components/MedicForm')
+const MedicForm=()=>import('../components/configs/MedicForm')
 const NonMedic=()=>import('../modules/master/components/NonMedic')
 const NonMedicForm=()=>import('../modules/master/components/NonMedicForm')
 

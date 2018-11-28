@@ -36,10 +36,20 @@ const mutations={
     }
 }
 
+const actions={
+    changeModule({commit},mod){
+        commit('changeModule',mod);
+    },
+    toggleDrawer({commit}){
+        commit('toggleDrawer');
+    }
+}
+
 export default {
     namespaced: true,
     state,
     getters,
-    mutations
+    mutations,
+    actions
   }
 

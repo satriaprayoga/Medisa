@@ -40,9 +40,9 @@
 </template>
 
 <script>
-import AppDrawer from './modules/layout/components/AppDrawer'
-import AppToolbar from './modules/layout/components/AppToolbar'
-import AppHeader from './modules/layout/components/AppHeader'
+import AppDrawer from './components/layouts/AppDrawer'
+import AppToolbar from './components/layouts/AppToolbar'
+import AppHeader from './components/layouts/AppHeader'
 
 export default {
   name: 'App',
