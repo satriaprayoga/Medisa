@@ -2,6 +2,7 @@ const state={
     modules:[
         "Bantuan",
         "HRM",
+        "Konfigurasi"
     ],
     activeModule:"",
     drawer:true

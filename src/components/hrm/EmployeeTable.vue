@@ -3,7 +3,7 @@
             :headers="headers"
             :items="items"
             hide-actions
-            class="eleveation-1"
+            class="elevation-1"
         >
         <template slot="items" slot-scope="props">
             <template v-for="(value,key) in props.item">

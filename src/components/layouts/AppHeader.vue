@@ -5,7 +5,7 @@
     </div>
     <v-breadcrumbs divider="-">
       <v-breadcrumbs-item>
-      <v-icon larg>home</v-icon>
+      <v-icon large>home</v-icon>
       </v-breadcrumbs-item>
     </v-breadcrumbs>
     <v-spacer></v-spacer>

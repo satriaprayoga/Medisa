@@ -5,6 +5,7 @@ const Medic=()=>import('../views/hrm/employee/Medic')
 const MedicForm=()=>import('../components/hrm/MedicForm')
 const NonMedic=()=>import('../views/hrm/employee/NonMedic')
 const NonMedicForm=()=>import('../components/hrm/NonMedicForm')
+const Actions=()=>import('../views/settings/Actions')
 
 Vue.use(Router)
 
@@ -32,6 +33,11 @@ const router= new Router({
             name:'Update Pegawai Non Medis',
             component:NonMedicForm
         },
+        {
+            path:'/actions',
+            name:'Tindakan',
+            component:Actions
+        }
     ]
 });
 

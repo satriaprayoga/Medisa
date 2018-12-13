@@ -4,10 +4,10 @@
     fixed
     app
     dark>
+    
     <v-toolbar-title class="ml-0 pl-3">
       <v-toolbar-side-icon @click.stop="toggleDrawer"></v-toolbar-side-icon>
     </v-toolbar-title>
-   
       <v-spacer></v-spacer>
        <v-menu offset-y origin="center center" class="elelvation-1" :nudge-bottom="14" transition="scale-transition">
         <v-btn icon flat slot="activator">

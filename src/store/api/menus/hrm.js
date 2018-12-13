@@ -1,7 +1,7 @@
-export const settings={
+export const hrm={
     data:{
         title:'HRM',
-    name:'settings',
+    name:'hrm',
     items:[
         {
             title:'Pegawai',

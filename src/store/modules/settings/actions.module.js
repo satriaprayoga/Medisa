@@ -2,7 +2,8 @@ import {ActionService} from '../../api/actions'
 
 const state={
     actions:[],
-    action:{}
+    action:{},
+    subactions:[]
 }
 
 const getters={
@@ -13,6 +14,14 @@ const getters={
    getActionId:(state)=>(id)=>{
         state.action=ActionService.get(id);
         return state.action;
+   },
+   getSubActions:(state)=>(id)=>{
+       state.subactions=ActionService.getSubActions(id);
+       return state.subactions;
+   },
+   getSubActionsByType:(state)=>(type)=>{
+    state.subactions=ActionService.getSubActionByType(type);
+    return state.subactions;
    }
 }
 
@@ -22,6 +31,9 @@ const mutations={
     },
     removeAction(state,action){
         ActionService.remove(data);
+    },
+    updateSubAction(state,action,subAction){
+        ActionService.updateSubAction(action.id,subAction);
     }
 }
 

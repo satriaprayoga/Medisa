@@ -7,7 +7,7 @@
         >
         <template slot="items" slot-scope="props">
             <template v-for="(value,key) in props.item">
-                <td v-if="key!=='id'">{{value}}</td>
+                <td v-if="key!=='id'">{{formatNumber(value)}}</td>
                 <!-- <td>{{ props.item.name }}</td>
             <td>{{ props.item.type }}</td>
             <td>{{ props.item.specialist }}</td> -->
@@ -53,7 +53,18 @@ export default {
     },
     methods:{
         formatNumber(value){
-            var numString=parseN
+            var output;
+            if(isNaN(value)){
+                output=value;
+            }else{
+                const formatter=Intl.NumberFormat('id-ID',{
+                    style:'currency',
+                    currency:'IDR',
+                    minimumFractionDigits:2
+                });
+                output=formatter.format(value);
+            }
+            return output;
         }
     }
         

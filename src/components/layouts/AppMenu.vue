@@ -45,7 +45,8 @@
 <script>
 
 import {helpdesk} from '@/store/api/menus/helpdesk'
-import {settings} from '@/store/api/menus/settings'
+import {hrm} from '@/store/api/menus/hrm'
+import {configs} from '@/store/api/menus/configs'
 
 export default {
     name:'app-menu',
@@ -69,7 +70,9 @@ export default {
             var currentModule=this.$store.getters['layoutsMenusModule/getActiveModule'];
             var modules=this.$store.getters['layoutsMenusModule/getModules'];
              if(currentModule===modules[1])
-                this.menus=settings.data;
+                this.menus=hrm.data;
+             else if(currentModule===modules[2])
+                this.menus=configs.data;
             else
                 this.menus=helpdesk.data;
             console.log(this.menus);
