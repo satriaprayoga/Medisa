@@ -38,7 +38,7 @@
     </template>
     <script>
 
-    import PriceTable from "@/components/settings/PriceTable"
+    import PriceTable from "@/components/configs/PriceTable"
 
     export default {
         components:{
@@ -47,7 +47,7 @@
         computed:{
             loadSelections(){
                 var selections=[];
-                var actions=this.$store.getters["settingsActionsModule/getActions"];
+                var actions=this.$store.getters["configsActionsModule/getActions"];
                 actions.forEach(element => {
                     selections.push(element.type)
                 });
@@ -79,7 +79,7 @@
         },
         methods:{
             change(){
-                this.actions.items=this.$store.getters["settingsActionsModule/getSubActionsByType"](this.selected)
+                this.actions.items=this.$store.getters["configsActionsModule/getSubActionsByType"](this.selected)
             }
         }
     }

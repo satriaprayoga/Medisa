@@ -5,7 +5,7 @@ const Medic=()=>import('../views/hrm/employee/Medic')
 const MedicForm=()=>import('../components/hrm/MedicForm')
 const NonMedic=()=>import('../views/hrm/employee/NonMedic')
 const NonMedicForm=()=>import('../components/hrm/NonMedicForm')
-const Actions=()=>import('../views/settings/Actions')
+const Actions=()=>import('../views/configs/Actions')
 
 Vue.use(Router)
 

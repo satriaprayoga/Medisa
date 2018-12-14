@@ -32,6 +32,9 @@
         </v-data-table>
 </template>
 <script>
+
+import {helper} from '@/utils/helper'
+
 export default {
     props:{
         headers:{
@@ -53,18 +56,7 @@ export default {
     },
     methods:{
         formatNumber(value){
-            var output;
-            if(isNaN(value)){
-                output=value;
-            }else{
-                const formatter=Intl.NumberFormat('id-ID',{
-                    style:'currency',
-                    currency:'IDR',
-                    minimumFractionDigits:2
-                });
-                output=formatter.format(value);
-            }
-            return output;
+           return helper.convertToCurrency(value,'IDR');
         }
     }
         
