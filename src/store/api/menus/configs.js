@@ -8,6 +8,11 @@ export const configs={
             name:'actions',
             to:'/actions'
             
+        },
+        {
+            title:'Diagnosa',
+            name:'diagnostics',
+            to:'/diagnostics'
         }
     ]
     }
