@@ -7,7 +7,7 @@
                     </v-flex>  
                     <v-flex lg12>
                         <v-toolbar card color="white">
-                            <v-btn color="success">Tambah Diagnosa</v-btn>
+                            <v-btn color="success" to="/update_diagnostics">Tambah Diagnosa</v-btn>
                             <v-text-field
                             flat
                             solo

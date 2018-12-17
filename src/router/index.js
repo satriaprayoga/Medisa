@@ -7,6 +7,7 @@ const NonMedic=()=>import('../views/hrm/employee/NonMedic')
 const NonMedicForm=()=>import('../components/hrm/NonMedicForm')
 const Actions=()=>import('../views/configs/Actions')
 const Diagnostics=()=>import('../views/configs/Diagnostics')
+const DiagnosticForm=()=>import('../components/configs/DiagnosticForm')
 
 Vue.use(Router)
 
@@ -43,6 +44,11 @@ const router= new Router({
             path:'/diagnostics',
             name:'Diagnosa',
             component:Diagnostics
+        },
+        {
+            path:'/update_diagnostics/:id?',
+            name:'Update Diagnosa',
+            component:DiagnosticForm
         }
     ]
 });

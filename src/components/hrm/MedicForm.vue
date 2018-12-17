@@ -14,12 +14,20 @@
                                  <v-text-field
                                     label="Nama Lengkap"
                                     name="name"
-                                    v-model="employee.name">
+                                    v-model="employee.name"
+                                    v-validate="'required'"
+                                    data-vv-name="name"  
+                                    :error-messages="errors.collect('name')"  
+                                    required>
                                  </v-text-field>
                                  <v-select
                                     :items="types"
                                     label="Jenis Pegawai"
                                     v-model="employee.type"
+                                     v-validate="'required'"
+                                    data-vv-name="type"  
+                                    :error-messages="errors.collect('type')"  
+                                    required
                                     auto>
                                 </v-select>
                                 <v-select v-if="employee.type==='Dokter' ||employee.type===''"
@@ -84,12 +92,22 @@ export default {
     },
     methods:{
         submit(){
-            console.log(this.employee);
+           this.$validator.validateAll().then((result)=>{
+               if(result){
+                    console.log(this.employee);
             this.$store.dispatch('hrmEmployeeModule/updateMedic',this.employee);
             this.$router.push('/employee_medics');
+               }
+           });
         },
         reset(){
-         Object.assign(this.employee,this.cacheEmployee);
+         if(this.employee.id===undefined){
+              this.employee={}
+         }else{
+              Object.assign(this.employee,this.cacheEmployee);
+
+         }
+         $this.validator.reset();
          
         }
     }
