@@ -8,6 +8,8 @@ const NonMedicForm=()=>import('../components/hrm/NonMedicForm')
 const Actions=()=>import('../views/configs/Actions')
 const Diagnostics=()=>import('../views/configs/Diagnostics')
 const DiagnosticForm=()=>import('../components/configs/DiagnosticForm')
+const MedicDetail=()=>import('../views/hrm/employee/MedicDetail')
+
 
 Vue.use(Router)
 
@@ -34,6 +36,11 @@ const router= new Router({
             path:'/update_employee_non_medics/:id?',
             name:'Update Pegawai Non Medis',
             component:NonMedicForm
+        },
+        {
+            path:'/medic_detail',
+            name:'Petugas Medis',
+            component:MedicDetail
         },
         {
             path:'/actions',

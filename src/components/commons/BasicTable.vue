@@ -22,6 +22,13 @@
                 </v-icon>
                 <v-icon
                     small
+                    class="mr-2"
+                    @click="viewPage(props.item.id)"
+                >
+                    visibility
+                </v-icon>
+                <v-icon
+                    small
                     @click="openDialog(props.item)"
                 >
                     delete
@@ -45,6 +52,9 @@ export default {
             default:function(){return [];}
         },
         updatePage:{
+            type:Function
+        },
+        viewPage:{
             type:Function
         },
         openDialog:{
